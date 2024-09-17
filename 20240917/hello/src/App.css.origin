@@ -1,0 +1,18 @@
+.App {
+  color: red;
+  /* border: 5px inset purple; */
+
+  text-align: center;
+
+  font-size: 38px;
+  font-family: Economica;
+  font-style: italic;
+  font-weight: bold;
+}
+/*
+img {
+  border: 3px solid blue;
+} p {
+  border: 1px solid black;
+} */
+

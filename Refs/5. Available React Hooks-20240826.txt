@@ -1,0 +1,76 @@
+**************************************************************
+* 2. Available React Hooks - 2024.08.26
+**************************************************************
+
+1. Print all available React hooks by the following code in the `index.js`.
+
+	- console.info('\t+ React:', React);
+
+	- Please see `2. Available React Hooks-20240826.jpg` file.
+
+
+2. All available React hooks in `react@18.3.1`.
+
+	- import React from 'react';
+
+	- All Hook List In The `React` Module:
+
+		(01) useCallback
+		(02) useContext
+		(03) useDebugValue
+		(04) useDeferredValue
+		(05) useEffect
+		(06) useId
+		(07) useImperativeHandle
+		(08) useInsertionEffect
+		(09) useLayoutEffect
+		(10) useMemo
+		(11) useReducer
+		(12) useRef
+		(13) useState
+		(14) useSyncExternalStore
+		(15) useTransition
+
+
+3. All available React hooks in `react-router-dom@6.26.1`.
+
+	- import { `hook` } from 'react-router-dom';
+
+	- All Hook List In The `react-router-dom` Module:
+
+		(01) useActionData
+		(02) useAsyncError
+		(03) useAsyncValue
+		(04) useBeforeUnload 
+		(05) useBlocker 
+		(06) useFetcher 
+		(07) useFetchers 
+		(08) useFormAction 
+		(09) useLayoutEffect
+		(10) useHref 
+		(11) useInRouterContext 
+		(12) useLinkClickHandler
+		(13) useLinkPressHandler
+		(14) useLoaderData
+		(15) useLocation
+		(16) useMatch
+		(17) useMatches 
+		(18) useNavigate 
+		(19) useNavigation 
+		(20) useNavigationType
+		(21) useOutlet
+		(22) useOutletContext
+		(23) useParams 
+		(24) unstable_usePrompt
+		(25) useResolvedPath
+		(26) useRevalidator 
+		(27) useRouteError
+		(28) useRouteLoaderData 
+		(29) useRoutes 
+		(30) useSearchParams
+		(31) useSubmit
+		(32) unstable_useViewTransitionState
+
+
+
+

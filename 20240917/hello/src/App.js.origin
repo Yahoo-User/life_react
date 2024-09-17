@@ -1,0 +1,25 @@
+import logo from './logo.svg';
+import './App.css';
+
+
+console.clear();
+
+/* logo == /static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg */
+console.debug('logo:', logo);   // *.svg fiile path
+
+
+// returns React.JSX.Element -▶ React.ReactNode
+function App() {
+  console.debug('App() invoked.');
+
+  return (
+    <div className="App">
+      Hello, React<p/>
+      <img src={logo} width={300} height={300} alt=''/>
+    </div>
+  );  // React.JSX.Element
+} // App
+
+
+export default App;
+

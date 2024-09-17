@@ -1,0 +1,18 @@
+.container {
+    font-family: D2Coding;
+    font-style: italic;
+}
+
+.ol {
+    font-size: 16px;
+}
+
+.li {
+    list-style-type: circle;
+}
+
+.strong {
+    color: red;
+}
+
+

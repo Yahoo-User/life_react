@@ -1,0 +1,264 @@
+**************************************************************
+* 1. How to create React project with CRA ? - 2024.08.26
+**************************************************************
+
+================================
+Step01. Sign-In to the "github" : 														<--- *** : (Required Once)
+================================
+
+	> gh -h
+	> gh auth -h
+
+	> gh auth login
+
+	> gh auth status --show-token
+	github.com
+	  ✓ Logged in to github.com account *Yahoo-User (keyring)
+	  - Active account: false 																	<--- ***
+	  - Git operations protocol: https
+	  - Token: gho_************************************
+	  - Token scopes: 'delete_repo', 'gist', 'read:org', 'repo', 'workflow'
+
+	  ✓ Logged in to github.com account *Gmail-User (keyring)
+	  - Active account: false 																	<--- ***
+	  - Git operations protocol: https
+	  - Token: gho_************************************
+	  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
+
+	  ✓ Logged in to github.com account *Naver-User (keyring)
+	  - Active account: true 																	<--- ***
+	  - Git operations protocol: https
+	  - Token: gho_************************************
+	  - Token scopes: 'gist', 'read:org', 'repo', 'workflow'
+
+	* Important : If signed multiple accounts, switch to the <Username> to control version.	(***)
+
+	> gh auth switch -u Yahoo-User
+	✓ Switched active account for github.com to Yahoo-User
+
+	> gh repo -h
+
+	> gh repo list
+	NAME                                             DESCRIPTION                       INFO     UPDATED
+	Yahoo-User/<Repository>                                                           public   about 41 minutes ago
+	...
+
+
+================================
+Step2. Set github environments like the below: 						<--- *** : (Required Once)
+================================
+
+	> git config -h
+
+	> git config --global user.name 'Yoseph-User'
+	> git config --global user.email 'cherryneo@yahoo.co.kr'
+	> git config --global init.defaultbranch main
+
+	> git config -l --show-scope
+	> git config -l --show-scope --show-origin
+
+
+================================
+Step3. Clean npm all cached packages : 										<--- *** : Optional
+================================
+
+	> npm cache -h
+
+	> npm cache ls
+	> npm cache clean --force
+	> npm cache ls
+
+
+================================
+Step4. Update `npm` itself by latest : 											<--- *** : Optional
+================================
+
+	> npm install -g npm@latest
+	> npm ls -g
+
+
+================================
+Step5. Create a React project with CRA : 									<--- *** : Required
+================================
+
+	> npx create-react-app@next <project-name>
+
+	> cd <project-name>
+
+	/**
+	  * Important : Don't install the following the package.			<--- ***
+
+			> npm i -D @babel/plugin-transform-private-property-in-object  	(XXX)
+	  */
+
+	> npm i -D @babel/plugin-proposal-private-property-in-object				<--- ***
+	> npm i -D @types/node 																			<--- ***
+	> npm i -D @types/react 																			<--- ***
+	> npm i -D @types/react-dom 																	<--- ***
+
+	> npm ls -g --depth 0
+	C:\app\scoop\apps\nvm\current\nodejs\nodejs -> .\
+	├── corepack@0.29.3
+	├── npm@10.8.3
+
+	> npm ls --depth 0
+	├── @babel/plugin-proposal-private-property-in-object@7.21.11 		<--- ***
+	├── @testing-library/jest-dom@5.17.0 	
+	├── @testing-library/react@13.4.0
+	├── @testing-library/user-event@13.5.0
+	├── @types/react-dom@18.3.0 																<--- ***
+	├── @types/react@18.3.4 																		<--- ***
+	├── react-dom@18.3.1
+	├── react-scripts@5.0.1
+	├── react@18.3.1
+	└── web-vitals@2.1.4
+
+	> npm outdated
+	Package                      Current  Wanted  Latest  Location                                  Depended by
+	@testing-library/jest-dom     5.17.0  5.17.0   6.4.2  node_modules/@testing-library/jest-dom    use-reducer
+	@testing-library/react        13.4.0  13.4.0  14.2.1  node_modules/@testing-library/react       use-reducer
+	@testing-library/user-event   13.5.0  13.5.0  14.5.2  node_modules/@testing-library/user-event  use-reducer
+	web-vitals                     2.1.4   2.1.4   3.5.2  node_modules/web-vitals                   use-reducer
+
+	* Update the above oudated packages, except `web-vitals` package to update.	 (***)
+
+	> npm install @testing-library/jest-dom@latest
+	> npm install @testing-library/react
+	> npm install @testing-library/user-event
+
+	> npm outdated
+	Package     Current  Wanted  Latest  Location                 Depended by
+	web-vitals    2.1.4   2.1.4   4.2.3  node_modules/web-vitals  react-router-dom	<--- Warning: Don't update this!.	(***)
+
+	> npm doctor
+	Connecting to the registry
+	Ok
+	Checking npm version
+	Ok
+	current: v10.8.3, latest: v10.8.3
+	Checking node version
+	Ok
+	current: v20.17.0, recommended: v20.17.0
+	Checking configured npm registry
+	Ok
+	using default registry (https://registry.npmjs.org/)
+	Checking for git executable in PATH
+	Ok
+	C:\app\scoop\shims\git.EXE
+	Checking for global bin folder in PATH
+	Ok
+	C:\app\scoop\apps\nvm\current\nodejs\nodejs
+
+
+================================
+Step6. Start React App 																<--- *** : Required
+================================
+
+	> npm start
+
+
+================================
+Step7. Update .gitignore 															<--- *** : Required
+================================
+
+	> echo package-lock.json >> .gitignore
+	
+	> more .gitignore
+	...
+	package-lock.json 																	<--- ***
+
+	> rm -f package-lock.json 														<--- ***
+
+
+================================
+Step8. Create a remote repository on github 								<--- *** : Required
+================================
+
+	> gh repo list
+	...
+
+	> gh repo create --source . --remote origin --public
+	✓ Created repository Yahoo-User/hello on GitHub
+	  https://github.com/Yahoo-User/hello
+	✓ Added remote https://github.com/Yahoo-User/hello.git
+
+	> gh repo list
+
+	NAME                                             DESCRIPTION                       INFO     UPDATED
+	Yahoo-User/<NewRepository>                                                    public   less than a minute ago
+	...
+
+	> git remote -v show origin
+	* remote origin
+	  Fetch URL: https://github.com/Yahoo-User/hello.git
+	  Push  URL: https://github.com/Yahoo-User/hello.git
+	  HEAD branch: (unknown)
+
+	> gh repo view --web
+
+	> git push -u origin main
+	...
+	To https://github.com/Yahoo-User/hello.git
+	 * [new branch]      main -> main
+	branch 'main' set up to track 'origin/main'.
+
+	> git push
+	Everything up-to-date
+
+
+================================
+Step9. Initial Commit & git push 												<--- *** : Required
+================================
+
+	> git status
+	> git add .
+	> git commit -m "Initial Commit"
+	> git log --oneline
+
+	> git push
+
+	> git log --oneline
+	> git repo view --web
+
+
+================================
+Step10. Build Production Code & Serve 										<--- *** : Optional
+================================
+
+	> npm run build
+	
+	...
+	  npm install -g serve
+	  serve -s build
+	...
+
+	> npx serve -s build
+	...
+   ┌───────────────────────────────────────────┐
+   │   Serving!                                																   │
+   │   - Local:    http://localhost:3000       													   │
+   │   - Network:  http://192.168.1.116:3000   										   │
+   │   Copied local address to clipboard!      												   │
+   └───────────────────────────────────────────┘
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+

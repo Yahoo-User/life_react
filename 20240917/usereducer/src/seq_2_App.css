@@ -1,0 +1,22 @@
+.App {
+    text-align: center;
+}
+.App > input {
+    margin: 10px 5px;
+    padding: 5px 10px;
+
+    color: blue;
+
+    font-size: 16px;
+    font-weight: bold;
+    font-family: D2Coding;
+}
+.App > span {
+    color: red;
+
+    font-size: 70px;
+    font-weight: bold;
+    font-family: D2Coding;
+}
+
+

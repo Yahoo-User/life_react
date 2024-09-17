@@ -1,0 +1,48 @@
+*******************************************************************
+* 1. How to create Redux Toolkit (RTK) Sample project with CRA ?
+*******************************************************************
+
+
+(1) 1st. method : Using `redux project template`.
+
+    > npx create-react-app@next redux-toolkit-example --template redux              <--- ***
+
+
+(2) 2nd. method : Using default CRA react project + install additional redux-related packages.
+
+    > npx create-react-app@next redux-toolkit
+
+    > npm cache ls
+    > npm cache clean --force
+
+    > npm test
+
+    > npm i -D @babel/plugin-proposal-private-property-in-object @types/react @types/react-dom
+
+    > npm test
+    > npm ls --depth 0
+    > more package.json
+
+    // deprecated @types/redux@3.6.0    -> Instead, `redux@5.0.1` installed.
+    > npm i -S redux react-redux
+
+    // `Redux` provides its own type definitions, so you don't need `@types/redux` installed!     <--- ***
+    // > npm i -D @types/redux                    // XX
+    
+    > npm i -D @types/react-redux                 // OK
+
+    > npm ls --depth 0
+    > more package.json
+
+    // Install additionally `redux toolkit` (@@reduxjs/toolkit) to build dev. env. with redux toolkit.
+    > npm search reduxjs
+    > npm i -S @reduxjs/toolkit
+    > npm ls --depth 0
+    > more package.json
+
+    
+
+
+
+
+

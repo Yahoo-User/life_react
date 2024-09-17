@@ -1,0 +1,44 @@
+#container,
+#container div > div {
+    border: 5px outset blue;
+    margin: 10px;
+}
+#container div {
+    border: 2px dotted gray;
+    margin: 10px;
+}
+
+#container h2 {
+    padding-left: 10px;
+    text-align: left;
+
+    color: red;
+
+    font-size: 30px;
+    font-family: Economica;
+    font-weight: bold;
+    font-style: normal;
+}
+
+#container h3 {
+    padding-left: 10px;
+    text-align: left;
+
+    color: green;
+
+    font-size: 28px;
+    font-family: Economica;
+    font-weight: bold;
+    font-style: normal;
+}
+
+#container h3 > span {
+    color: red;
+    
+    font-family: Economica;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}

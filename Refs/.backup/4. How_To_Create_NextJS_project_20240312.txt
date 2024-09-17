@@ -1,0 +1,136 @@
+**************************************************************
+* 1. How to create Next.js project with CNA ? - 2024.03.12
+**************************************************************
+
+
+-----------------------------------------------------
+Step1. Login to "github" : 												<--- *** : (ONCE Required)
+-----------------------------------------------------
+
+	> gh auth login
+	> gh auth status --show-token
+
+-----------------------------------------------------
+Step2. Set github environments like the below: 							<--- *** : (ONCE Required)
+-----------------------------------------------------
+
+	> git config --global user.name "Yoseph"
+	> git config --global user.email "cherryneo@yahoo.co.kr"
+
+	> git config -l --show-scope
+	> git config -l --show-scope --show-origin
+
+	> git config --global -edit
+
+-----------------------------------------------------
+Step3. Clean npm all cached packages : 									<--- *** : Optional
+-----------------------------------------------------
+
+	> npm cache ls
+	> npm cache clean --force
+	> npm cache ls
+
+-----------------------------------------------------
+Step4. Create a React project with CNA (Create-Next-App)        <--- *** : Required
+-----------------------------------------------------
+
+    > npx create-next-app@latest 
+    √ What is your project named? » my-app
+    √ Would you like to use TypeScript? » (No) / Yes
+    √ Would you like to use ESLint? » No / (Yes)
+    √ Would you like to use Tailwind CSS? » (No) / Yes
+    √ Would you like to use `src/` directory? » No / (Yes)
+    √ Would you like to use App Router? (recommended) » No / (Yes)
+    √ Would you like to customize the default import alias (@/*)? » (No) / Yes
+
+    Creating a new Next.js app in C:\app\rt_workspace\life_coding\Part8\next_js2.
+
+    Using npm.
+
+    Initializing project with template: app         <--- ***
+
+
+    Installing `dependencies`:                        <--- ***
+    - react
+    - react-dom
+    - next
+
+    Installing `devDependencies`:                     <--- ***
+    - eslint
+    - eslint-config-next
+
+    [#########.........] / ....
+
+    added 308 packages, and audited 309 packages in 25s
+
+    121 packages are looking for funding
+    run `npm fund` for details
+
+    found 0 vulnerabilities
+    Initialized a git repository.
+
+    Success! Created `next_js2` at C:\app\rt_workspace\life_coding\Part8\next_js2
+
+    > npm run
+    Lifecycle scripts included in next_js2@0.1.0:
+    start                                           <--- ***: (1)
+        next start
+
+    available via `npm run-script`:
+    dev                                             <--- ***: (2)
+        next dev
+    build                                           <--- ***: (3)
+        next build
+    lint                                            <--- ***: (4)
+        next lint
+
+
+-----------------------------------------------------
+Step5. To start development environment
+-----------------------------------------------------
+
+	> npm run dev
+
+
+-----------------------------------------------------
+Step6. To build a project to deploy
+-----------------------------------------------------
+
+	> npm run build
+
+    > next_js2@0.1.0 build
+    > next build
+
+    ▲ Next.js 14.1.3
+
+    Creating an optimized production build ...
+    ✓ Compiled successfully
+    ✓ Linting and checking validity of types
+    ✓ Collecting page data
+    ✓ Generating static pages (5/5)
+    ✓ Collecting build traces
+    ✓ Finalizing page optimization
+
+    Route (app)                              Size     First Load JS
+    ┌ ○ /                                    5.39 kB        89.7 kB
+    └ ○ /_not-found                          882 B          85.2 kB
+    + First Load JS shared by all            84.3 kB
+    ├ chunks/69-c292296505fe2927.js          29 kB
+    ├ chunks/fd9d1056-c7082c319cc53ced.js    53.4 kB
+    └ other shared chunks (total)             1.91 kB
+
+
+    ○  (Static)  prerendered as static content
+
+
+-----------------------------------------------------
+Step7. To start a production environment
+-----------------------------------------------------
+
+	> npm start
+
+
+
+
+
+

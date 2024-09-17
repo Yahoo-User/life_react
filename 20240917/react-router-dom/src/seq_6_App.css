@@ -1,0 +1,12 @@
+.App {
+    text-align: left;
+}
+ol > li > a {
+    text-decoration: none;
+}
+.active {
+    background-color: tomato;
+    color: white;
+}
+
+

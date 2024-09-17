@@ -1,0 +1,83 @@
+**************************************************************
+* 1. How to create React project with CRA ? - 2024.03.04
+**************************************************************
+
+-----------------------------------------------------
+Step1. Login to "github" : 												<--- *** : (ONCE Required)
+-----------------------------------------------------
+
+	> gh auth login
+	> gh auth status --show-token
+
+-----------------------------------------------------
+Step2. Set github environments like the below: 							<--- *** : (ONCE Required)
+-----------------------------------------------------
+
+	> git config --global user.name "Yoseph"
+	> git config --global user.email "cherryneo@yahoo.co.kr"
+
+	> git config -l --show-scope
+	> git config -l --show-scope --show-origin
+
+	> git config --global -edit
+
+-----------------------------------------------------
+Step3. Clean npm all cached packages : 									<--- *** : Optional
+-----------------------------------------------------
+
+	> npm cache ls
+	> npm cache clean --force
+	> npm cache ls
+
+-----------------------------------------------------
+Step4. Create a React project with CRA : 								<--- *** : Required
+-----------------------------------------------------
+
+	> npx create-react-app@next <project-name>
+
+	// > npm i -D @babel/plugin-transform-private-property-in-object 	(XXX)	
+	> npm i -D @babel/plugin-proposal-private-property-in-object		(***)
+
+	> npm outdated
+	Package                      Current  Wanted  Latest  Location                                  Depended by
+	@testing-library/jest-dom     5.17.0  5.17.0   6.4.2  node_modules/@testing-library/jest-dom    use-reducer
+	@testing-library/react        13.4.0  13.4.0  14.2.1  node_modules/@testing-library/react       use-reducer
+	@testing-library/user-event   13.5.0  13.5.0  14.5.2  node_modules/@testing-library/user-event  use-reducer
+	web-vitals                     2.1.4   2.1.4   3.5.2  node_modules/web-vitals                   use-reducer
+
+	> npm outdated <packageName>
+
+	> npm outdated web-vitals
+	Package     Current  Wanted  Latest  Location                 Depended by
+	web-vitals    2.1.4   2.1.4   3.5.2  node_modules/web-vitals  use-reducer
+
+	// > npm update
+
+	> npm doctor 
+	Check                      Value   Recommendation/Notes
+	npm ping                   ok       
+	npm -v                     ok      current: v10.5.0, latest: v10.5.0
+	node -v                    ok      current: v20.11.1, recommended: v20.11.1
+	npm config get registry    ok      using default registry (https://registry.npmjs.org/)
+	git executable in PATH     ok      C:\app\scoop\shims\git.EXE
+	global bin folder in PATH  ok      C:\app\scoop\apps\nvm\current\nodejs\nodejs
+
+-----------------------------------------------------
+Step5. To test
+-----------------------------------------------------
+
+	> npm test
+
+
+-----------------------------------------------------
+Step6. Start React App
+-----------------------------------------------------
+
+	> npm start
+
+
+	
+
+
+
+

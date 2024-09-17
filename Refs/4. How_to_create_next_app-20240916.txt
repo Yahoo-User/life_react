@@ -1,0 +1,144 @@
+===========================================
+* How To Create Next App ?
+===========================================
+
+* Important : there are the differences next versions between @until 12 and @since 13.		(***)
+						(1) Directory structures are different.
+						(2) The methods of page routings are different.
+
+--------------------
+1. @Until v12
+--------------------
+
+	(0) Default 
+
+	(1) Installing next.js latest version of 12 (12.3.4)
+
+			> npx create-next-app@^12 next-js-12 							<--- *** : ...@^12 - the latest version out of *12, but *Not working.			(***)
+			> npm i -S next@^12 														<--- *** : next@^12 - *Downgrade to the latest version out of *12.			(***)
+
+			> npm uninstall eslint eslint-config-next 						<--- Uninstall all unnecessary packages.
+			> npm i -D @types/next@8.0.7 @types/react-dom@latest @types/react@latest
+
+			> npm outdated
+			> npm doctor
+
+
+	(2) Confirm installed all packages.
+
+			> npm ls --depth 0
+			next-js-12@0.1.0 C:\...\next-js-12
+			├── @types/next@8.0.7 												<--- 
+			├── @types/react-dom@18.3.0 									<--- 
+			├── @types/react@18.3.5 											<--- 
+			│
+			├── next@12.3.4 															<--- ***: next v12.x.x latest version
+			├── react-dom@18.3.1
+			└── react@18.3.1
+
+
+	(3) View directory structure of the project.
+
+			> tree .
+			C:\...\next-js-12
+			├─pages 																			<--- *** : Store all React components being routed.							(***)
+			│  └─api 																			<--- *** : API route.																				(***)
+			│ 
+			├─public 																			<--- static documents directory.
+			└─styles																			<--- CSS3 directory.
+
+			------------------
+
+			> tree . /f
+			C:\...\next-js-12
+			│  .eslintrc.json
+			│  .gitignore
+			│  *next.config.js 															<--- next configuration file => change to: **reactStrictMode: false,	(***)
+			│  *package.json 															<--- publish specification file.
+			│  README.md
+			│
+			├─**pages 																		<--- *** :Store all React components being routed.							(***)
+			│  │  **index.js 																<--- *** : Default Welcome React Component File.								(***)
+			│  │  _app.js
+			│  │
+			│  └─api
+			│          hello.js
+			│
+			├─*public 																		<--- static documents directory.
+			│      favicon.ico
+			│      vercel.svg
+			│      
+			└─*styles 																		<--- CSS3 directory.
+			        globals.css
+			        Home.module.css
+
+
+--------------------
+2. @Since v13
+--------------------
+
+	(1) Installing latest version of next v14
+
+			> npx create-next-app@latest nextjs14
+
+		√ Would you like to use TypeScript? ... [*No] / Yes
+		√ Would you like to use ESLint? ... [*No] / Yes
+		√ Would you like to use Tailwind CSS? ... [*No] / Yes
+		√ Would you like to use `src/` directory? ... No / [*Yes]
+		√ Would you like to use App Router? (recommended) ... No / [*Yes]
+		√ Would you like to customize the default import alias (@/*)? ... [*No] / Yes
+			...
+
+			> npm i -D @types/next@8.0.7  @types/react-dom@latest @types/react@latest
+
+			> npm outdated
+			> npm doctor
+
+
+	(2) Confirm installed all packages.
+
+			> npm ls --depth 0
+			nextjs14@0.1.0 C:\...\nextjs14
+			+-- @types/next@8.0.7 															<--- *** : Downgrade from 9.0.0 to the 8.0.7
+			+-- @types/react-dom@18.3.0 												<--- 
+			+-- @types/react@18.3.5 														<--- ***: next v14.x.x latest version
+			+-- next@14.2.11
+			+-- react-dom@18.3.1
+			`-- react@18.3.1
+
+
+	(3) View directory structure of the project.
+
+			> tree .
+			C:\...\NEXTJS14
+			└─src
+			    └─app
+			        └─fonts
+
+			------------------
+
+			> tree . /f
+			C:\...\NEXTJS14
+			│  .gitignore
+			│  *jsconfig.json
+			│  *next.config.mjs																	<--- next configuration file => change to: **reactStrictMode: false,	(***)
+			│  *package.json 																	<--- publish specification file.
+			│  README.md
+			│
+			└─**src
+			    └─**app 																				<--- *** : Store all React components being routed & CSS files.		(***)
+			        │  favicon.ico
+			        │  globals.css
+			        │  **layout.js
+			        │  **page.js 																	<--- *** : Default Welcome React Component File.								(***)
+			        │  page.module.css
+			        │
+			        └─fonts
+			                GeistMonoVF.woff
+			                GeistVF.woff
+
+
+
+
+
+

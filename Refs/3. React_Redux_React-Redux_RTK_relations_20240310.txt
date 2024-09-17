@@ -1,0 +1,131 @@
+*******************************************************************
+* 3. The relationships 
+*    between React, Redux, React-Redux, Redux-Tookit (RTK) ?
+*******************************************************************
+
+==================================================
+01. The core packages for developing React applications
+==================================================
+A. react                -> React is a JavaScript library for ** building user interfaces **.
+B. react-dom            -> React package for ** working with the DOM **.
+C. react-router-dom     -> ** Declarative routing ** for React web applications.
+D. styled-components    -> ** CSS for the <Component> Age **.
+                           ** Style components ** your way with speed, strong typing, and flexibility.
+E. redux                -> ** Predictable state container ** for JavaScript apps.
+F. react-redux          -> Official ** React bindings for Redux **.
+G. @reduxjs/tookit      -> The official, opinionated, batteries-included ** toolset for efficient Redux development **.
+==================================================
+
+
+==================================================
+02. The relationships between redux, react-redux, @reduxjs/tookit (RTK)
+==================================================
+
+---------------------------------------
+A. `redux` (predictable state container) core functions :
+---------------------------------------
+
+    (1) createStore(reducer) (* Deprecated *)
+        : Creates a Redux store that holds the state tree.
+
+    (2) legacy_createStore(reducer) (* Alternative for the deprecated `createStore`)
+        : Creates a Redux store (= state container) that holds the state tree.
+
+          ** Recommending using `configureStore` from the `@reduxjs/toolkit` (RTK) **,
+             which replaces `createStore`.
+
+          ** The only way ** to change the data in the store is to call `dispatch()` on it.
+
+        Ex: import {legacy_createStore as createStore} from 'redux'
+
+    (3) subscribe
+        : Adds a change listener.
+
+          It will be called any time an action is dispatched, 
+          and some part of the state tree may potentially have changed.
+
+    (4) getState
+        : Read the current state tree inside the callback (`subscribe`).
+
+    (5) dispatch(action)
+        : A function that can be used to ** update the state ** 
+          of a `useState` or `useReducer` hook.
+
+---------------------------------------
+B. `react-redux` (React bindings for Redux) core functions :
+---------------------------------------
+
+    (1) <Provider /> Component
+
+    (2) useSelector(selector), `selector` function prototype: state => any
+        : A hook to `access the redux store's state`.
+
+          This hook takes a `selector function` as an argument.
+          The `selector` is called `with the store state`.
+
+        : @example
+            
+            import React from 'react'
+            import {useSelector} from 'react-redux'                   <--- ***
+            
+            export const CounterComponent = () => {
+                                select a state from Redux store (state tree)
+                                -----------------------------------
+                const counter = useSelector(state => state.counter)     <--- ***
+
+                return <div>{counter}</div>
+            }
+
+    (3) useDispatch
+        : A hook to access the redux `dispatch` function.
+          Returns {any | function} redux store's `dispatch` function.
+
+        : @example
+ 
+            import React, {useCallback} from 'react'
+            import {useDispatch} from 'react-redux'
+            
+            export const CounterComponent = ({value}) => {
+                const dispatch = useDispatch()
+                                                          Dispatch updating Redux store (state tree)
+                                                          with the specified `action` to the `reducer`
+                                                          ----------------------------------------
+                const increaseCounter = useCallback(() => dispatch( { type: 'increase-counter' } ), [])
+
+                return (
+                    <div>
+                        <span>{value}</span>
+                        <button onClick={increaseCounter}>Increase counter</button>
+                    </div>
+                )
+            }
+
+    (4) connect
+        : interface `Connect<DefaultState = unknown>`
+          ** Connects a React component to a Redux store **.
+
+          Without arguments, 
+            - just wraps the component, without changing the behavior / props
+            - If 2 params are passed (3rd param, mergeProps, is skipped), 
+              default behavior is to override ownProps (as stated in the docs), 
+              so what remains is everything that's not a state or dispatch prop
+            - When 3rd param is passed, we don't know if ownProps propagate 
+              and whether they should be valid component props, because it depends on mergeProps implementation.
+              
+              As such, it is the user's responsibility to extend ownProps interface from state or dispatch props
+              or both when applicable.
+
+                @param mapStateToProps
+                @param mapDispatchToProps
+                @param mergeProps
+                @param options
+
+---------------------------------------
+C. `@reduxjs/toolkit` (RTK, Toolset for efficient `Redux` development) core functions :
+---------------------------------------
+
+    - configureStore
+    - createSlice
+    - createAsyncThunk
+
+
